@@ -1,23 +1,30 @@
-from flask import Flask, request, jsonify
+import json
+from flask import Flask, request
 from pymongo import MongoClient
 import os
 from dotenv import load_dotenv
+from bson import json_util
 
 app = Flask(__name__)
 
 load_dotenv()
 
+print(os.getenv('MONGO_URL'))
 
 # Connect to the MongoDB database (you should replace the URL with your MongoDB URL)
 client = MongoClient(os.getenv('MONGO_URL'))
 db = client['database']
+
 bg_collection = db['beginner']
 ex_collection = db['expert']
 
-
+def jsonify(data):
+    return json.loads(json_util.dumps(data))
 
 
 ######################################## Beginners ####################################################
+
+
 
 @app.route('/create/beginner', methods=['POST'])
 def create_beginner():
@@ -31,6 +38,8 @@ def create_beginner():
 @app.route('/beginners', methods=['GET'])
 def list_beginners():
     beginners = bg_collection.find({})
+    # for beginner in beginners:
+    #     beginner['_id'] = str(beginner['_id'])
     return jsonify(beginners), 200
 
 @app.route('/beginners/<bg_id>', methods=['GET'])
@@ -68,7 +77,7 @@ def delete_beginner(bg_id):
 
 
 @app.route('/create/expert', methods=['POST'])
-def create_beginner():
+def create_expert():
     data = request.get_json()
     if data:
         expert_id = ex_collection.insert_one(data).inserted_id
