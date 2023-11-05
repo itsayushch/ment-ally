@@ -1,7 +1,9 @@
 import {
     Box,
+    Button,
     chakra,
     SimpleGrid,
+    Stack,
     Stat,
     StatLabel,
     StatNumber,
@@ -39,7 +41,13 @@ import {
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 5, lg: 8 }}>
           <StatsCard title={'Followers'} stat={'6,000 people'} />
           <StatsCard title={'Profile View'} stat={'11,083 views'} />
-          {/* <StatsCard title={'Sessions Taken'} stat={'11,083 views'} /> */}
+          <StatsCard title={'Credit Score'} stat={'54%'} />
+          <Stack direction='column' spacing={4} py={8}>
+            <Button colorScheme='cyan' variant='solid'>
+              Host Sessions
+            </Button>
+
+          </Stack>
         </SimpleGrid>
       </Box>
     )

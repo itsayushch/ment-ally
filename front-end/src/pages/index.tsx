@@ -17,100 +17,101 @@ import {
 } from '@chakra-ui/react'
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import TopExperts from '@/components/TopExperts';
 
 export default function Index() {
   return (
     <>
-    <Navbar />
-    <Container maxW={'90vw'}>
-      <Stack
-        align={'center'}
-        spacing={{ base: 8, md: 10 }}
-        py={{ base: 20, md: 28 }}
-        direction={{ base: 'column', md: 'row' }}>
-        <Stack flex={1} spacing={{ base: 5, md: 10 }}>
-          <Heading
-            lineHeight={1.1}
-            fontWeight={600}
-            fontSize={{ base: '3xl', sm: '4xl', lg: '6xl' }}>
-            <Text
-              as={'span'}
-              position={'relative'}
-              _after={{
-                content: "''",
-                width: 'full',
-                height: '30%',
-                position: 'absolute',
-                bottom: 1,
-                left: 0,
-                bg: 'red.400',
-                zIndex: -1,
-              }}>
-              Write 69 TIMES
-            </Text>
-            <br />
-            <Text as={'span'} color={'red.400'}>
-              use everywhere!
-            </Text>
-          </Heading>
-          <Text color={'gray.500'}>
-            Snippy is a rich coding snippets app that lets you create your own code
-            snippets, categorize them, and even sync them in the cloud so you can use them
-            anywhere. All that is free!
-          </Text>
-          <Stack spacing={{ base: 4, sm: 6 }} direction={{ base: 'column', sm: 'row' }}>
-            <Button
-              rounded={'md'}
-              size={'lg'}
-              fontWeight={'bolder'}
-              px={6}
-              colorScheme={'red'}
-              bg={'red.400'}
-              _hover={{ bg: 'red.500' }}>
-              GET STARTED
-            </Button>
-          </Stack>
-        </Stack>
-        <Flex
-          flex={1}
-          justify={'center'}
-          align={'center'}
-          position={'relative'}
-          w={'full'}>
-          <Box
-            position={'relative'}
-            height={'300px'}
-            rounded={'2xl'}
-            boxShadow={'2xl'}
-            width={'full'}
-            overflow={'hidden'}>
-            <IconButton
-              aria-label={'Play Button'}
-              variant={'ghost'}
-              _hover={{ bg: 'transparent' }}
-              icon={<PlayIcon w={12} h={12} />}
-              size={'lg'}
-              color={'white'}
-              position={'absolute'}
-              left={'50%'}
-              top={'50%'}
-              transform={'translateX(-50%) translateY(-50%)'}
-            />
-            <Image
-              alt={'Hero Image'}
-              fit={'cover'}
+      <Box width={'full'} bg='gray.800'>
+        <Navbar />
+        <Container maxW={'90vw'}>
+          <Stack
+            align={'center'}
+            spacing={{ base: 8, md: 10 }}
+            py={{ base: 20, md: 28 }}
+            direction={{ base: 'column', md: 'row' }}>
+            <Stack flex={1} spacing={{ base: 5, md: 10 }}>
+              <Heading
+                fontWeight={'extrabold'}
+                fontSize={{ base: '3xl', sm: '4xl', lg: '6xl' }}
+                as={'span'} bgClip='text'
+                bgGradient='linear(to-r, #00ffff,purple.500)'
+              >
+                Use everywhere!
+              </Heading>
+              <Text color={'gray.500'}>
+                Snippy is a rich coding snippets app that lets you create your own code
+                snippets, categorize them, and even sync them in the cloud so you can use them
+                anywhere. All that is free!
+              </Text>
+              <Stack spacing={{ base: 4, sm: 6 }} direction={{ base: 'column', sm: 'row' }}>
+                <Button
+                  rounded={'md'}
+                  size={'lg'}
+                  fontWeight={'bolder'}
+                  px={6}
+                  colorScheme={'cyan'}
+                  variant={'outline'}
+                >
+                  GET STARTED
+                </Button>
+              </Stack>
+            </Stack>
+            <Flex
+              flex={1}
+              justify={'center'}
               align={'center'}
-              w={'100%'}
-              h={'100%'}
-              src={
-                'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80'
-              }
-            />
-          </Box>
+              position={'relative'}
+              w={'full'}>
+              <Box
+                position={'relative'}
+                height={'300px'}
+                rounded={'2xl'}
+                boxShadow={'2xl'}
+                width={'full'}
+                overflow={'hidden'}>
+                <IconButton
+                  aria-label={'Play Button'}
+                  variant={'ghost'}
+                  _hover={{ bg: 'transparent' }}
+                  icon={<PlayIcon w={12} h={12} />}
+                  size={'lg'}
+                  color={'white'}
+                  position={'absolute'}
+                  left={'50%'}
+                  top={'50%'}
+                  transform={'translateX(-50%) translateY(-50%)'}
+                />
+                <Image
+                  alt={'Hero Image'}
+                  fit={'cover'}
+                  align={'center'}
+                  w={'100%'}
+                  h={'100%'}
+                  src={
+                    'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80'
+                  }
+                />
+              </Box>
+            </Flex>
+          </Stack>
+        </Container>
+      </Box>
+      <Box bg='gray.700' maxW={'100vw'} mt={-2}>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 300"><path fill="#1A202C" fillOpacity="1" d="M0,224L48,218.7C96,213,192,203,288,181.3C384,160,480,128,576,112C672,96,768,96,864,128C960,160,1056,224,1152,229.3C1248,235,1344,181,1392,154.7L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
+        <Flex
+          direction='column'
+          align='center'
+          maxW={{ base: '100%', xl: '1200px' }}
+          m='0 auto'
+          pb={20}
+        >
+          <Heading color='white' pb={[12, 12, 0, 0]} id='about' letterSpacing={4}>EXPERTS MAKING AN IMPACT</Heading>
+        <TopExperts />
         </Flex>
-      </Stack>
-    </Container>
-    <Footer />
+      </Box>
+      <Footer />
+
     </>
   )
 }

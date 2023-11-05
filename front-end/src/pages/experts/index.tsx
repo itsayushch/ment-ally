@@ -29,7 +29,8 @@ import {
   Stack,
   Tag,
   TagLabel,
-  SimpleGrid
+  SimpleGrid,
+  Button
 } from '@chakra-ui/react'
 
 import { IconType } from 'react-icons'
@@ -237,7 +238,27 @@ const SidebarWithHeader = () => {
       <Box ml={{ base: 0, md: '35%' }} bg={'gray.700'} minH={'100vh'}>
         <PhoneBox />
         <Box p={20} color={'white'} >
+
           <Stats />
+          <br />
+
+          <Heading
+            as="h1"
+            fontSize={{ base: '2xl', md: '4xl' }}
+            fontWeight='extrabold'
+            pt={10}
+            textAlign={'center'}
+            bgClip='text'
+            bgGradient='linear(to-r, #00ffff,purple.500)'
+
+          >
+            MY CREATIONS
+          </Heading>
+          <Box w="100%" my="8" h="2px" bg="white" />
+          <YoutubeCard url={'https://www.youtube.com/embed/_uQrJ0TkZlc'} title='Learn Python Programming - Full Course for Beginners' desc='This comprehensive Python programming course is perfect for beginners. It covers Python fundamentals and is a great starting point for those new to coding.' />
+          <YoutubeCard url={'https://www.youtube.com/embed/hdI2bqOjy3c'} title='JavaScript Crash Course For Beginners' desc='This crash course introduces you to JavaScript, a vital web development language. It`s tailored for beginners and provides a solid foundation in JavaScript programming.' />
+          <YoutubeCard url={'https://www.youtube.com/embed/sBws8MSXN7A'} title='React.js Tutorial for Beginners' desc='Dive into React.js, a popular JavaScript library for building user interfaces. This video tutorial is designed for beginners looking to start with React.' />
+          <OtherCard url={'https://santoshb.com.np/img/banners/user-engagement-with-comments.png'} title='Enabling User Engagement with Comments' />
           <br />
           <Heading
             as="h1"
@@ -249,13 +270,12 @@ const SidebarWithHeader = () => {
             bgGradient='linear(to-r, #00ffff,purple.500)'
 
           >
-            YOUTUBE VIDEOS
+            OTHER RESOURCES
           </Heading>
           <Box w="100%" my="8" h="2px" bg="white" />
-          <YoutubeCard url={'https://www.youtube.com/embed/tgbNymZ7vqY'} />
-          <YoutubeCard url={'https://www.youtube.com/embed/tgbNymZ7vqY'} />
-          <YoutubeCard url={'https://www.youtube.com/embed/tgbNymZ7vqY'} />
-
+          <br />
+          <OtherCard url={'https://www.mongodb.com/docs/images/hero-v2.svg'} title='Get Started with MongoDB' /><br /><br />
+          <YoutubeCard url={'https://www.youtube.com/embed/sBws8MSXN7A'} title='React.js Tutorial for Beginners' desc='Dive into React.js, a popular JavaScript library for building user interfaces. This video tutorial is designed for beginners looking to start with React.' />
         </Box>
       </Box>
     </Box>
@@ -368,7 +388,7 @@ function PhoneBox() {
   )
 }
 
-function YoutubeCard({ url }: { url: any }) {
+function YoutubeCard({ url, title, desc }: { url: string, title: string, desc: string }) {
   return (
     <>
       <Flex
@@ -385,8 +405,8 @@ function YoutubeCard({ url }: { url: any }) {
           borderRadius='1rem'
         >
           <iframe
-            src="https://www.youtube.com/embed/Oflbho9ZG2U?start=103"
-            title="YouTube video player"
+            src={url}
+            title={title}
 
             allow="accelerometer; 
                   autoplay; 
@@ -397,26 +417,63 @@ function YoutubeCard({ url }: { url: any }) {
                   web-share
                   " />
         </Stack>
-        <Box w={{ base: "80%", sm: "60%", md: "50%" }}>
+        <Box w={{ base: "80%", sm: "60%", md: "50%" }} onClick={() => window.open(url, '_blank')} _hover={{
+          textDecoration: 'underline',
+          cursor: 'pointer'
+        }}>
           <Heading
             as="h1"
-            size="lg"
+            size="md"
             color='primary.700'
             textAlign="left"
           >
-            Youtube Title
+            {title}
           </Heading>
-          <Heading
-            as="h3"
-            size="md"
-            color="white"
-            opacity="0.8"
-            fontWeight="normal"
-            lineHeight={1.5}
+          <br />
+          <Text
+            as="h1"
+            size="sm"
+            color='primary.700'
             textAlign="left"
-            pt={5}
+            noOfLines={3}
+            
           >
-            Description
+            {desc}
+          </Text>
+        </Box>
+      </Flex>
+    </>
+  );
+}
+
+function OtherCard({ url, title, desc }: { url: string, title: string, desc?: string }) {
+  return (
+    <>
+      <Flex
+        align="center"
+        justify={{ base: "center", md: "space-around", xl: "space-around" }}
+        direction={{ base: "column", md: 'row' }}
+        minH="30vh"
+      >
+        <Stack
+          spacing={4}
+          w={{ base: "100%", md: "40%" }}
+          align={["center", "center", "flex-start", "flex-start"]}
+          overflow='hidden'
+          borderRadius='1rem'
+        >
+          <Image src={url} />
+        </Stack>
+        <Box w={{ base: "80%", sm: "60%", md: "50%" }}>
+          <Heading
+            as="h1"
+            size="md"
+            color='primary.700'
+            textAlign="left"
+            _hover={{ textDecoration: 'underline', cursor: 'pointer' }}
+            onClick={() => window.open('https://santoshb.com.np/blog/adding-user-engagement-with-comments-to-websites/', '_blank')}
+          >
+            {title}
           </Heading>
         </Box>
       </Flex>
