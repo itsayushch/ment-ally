@@ -4,7 +4,7 @@
 ## link to our presentation of the website
 https://drive.google.com/file/d/1qETw4W3PTSU1vYbAlruFPikGUcI2wXr0/view?usp=sharing
 
-### WHAT IS MENTALLY?
+### WHAT IS MENTally?
 You are a beginner in the field and have no idea (or got
 no one to guide), where to start with.
 You are stuck in some ongoing project or having
