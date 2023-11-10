@@ -24,7 +24,9 @@ def jsonify(data):
 
 ######################################## Beginners ####################################################
 
-@app.route()
+@app.route('/', methods=['GET'])
+def create_beginner():
+    return jsonify({"message": "Success"}), 200
 
 @app.route('/create/beginner', methods=['POST'])
 def create_beginner():
